@@ -1,5 +1,25 @@
-export default function Home() {
+import React from "react";
+import SearchForm from "@/components/SearchForm";
+const Home = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ query: string }>;
+}) => {
+  const query = (await searchParams).query;
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"></div>
+    <>
+      <section className="pink_container">
+        <h1 className="heading">
+          Pitch Your Startup, <br /> Connect with Entrepreneurs
+        </h1>
+        <p className="sub-heading !max-w-3xl">
+          Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competition.
+        </p>
+        <SearchForm query={query} />
+      </section>
+    </>
   );
-}
+};
+
+export default Home;
