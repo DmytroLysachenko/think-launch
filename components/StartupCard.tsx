@@ -4,6 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/button";
+import { Author, Startup } from "@/sanity/types";
+
+export type StartupCardType = Omit<Startup, "author"> & {
+  author: Author;
+};
 
 const StartupCard = ({ post }: { post: StartupCardType }) => {
   const {
@@ -36,7 +41,10 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
         </div>
         <Link href={`/user/${author._id}`}>
           <Image
-            src={author.image}
+            src={
+              author.image ||
+              "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"
+            }
             alt="user"
             width={40}
             height={40}
@@ -47,7 +55,10 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
       <Link href={`/startup/${_id}`}>
         <p className="startup-card_desc">{description}</p>
         <Image
-          src={image}
+          src={
+            image ||
+            "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="
+          }
           className="startup-card_img"
           alt="placeholder"
           width={500}
@@ -55,7 +66,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
         />
       </Link>
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query=${category.toLowerCase()}`}>{category}</Link>
+        <Link href={`/?query=${category?.toLowerCase()}`}>{category}</Link>
         <Button
           className="startup-card_btn"
           asChild
