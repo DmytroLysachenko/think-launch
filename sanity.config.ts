@@ -1,3 +1,5 @@
+"use client";
+
 import { markdownSchema } from "sanity-plugin-markdown";
 
 /**

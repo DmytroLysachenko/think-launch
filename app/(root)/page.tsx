@@ -1,6 +1,8 @@
 import React from "react";
 import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 const Home = async ({
   searchParams,
 }: {
@@ -8,24 +10,9 @@ const Home = async ({
 }) => {
   const query = (await searchParams).query;
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 50,
-      author: {
-        _id: 1,
-        name: "John Doe",
-        image:
-          "https://plus.unsplash.com/premium_photo-1681562502996-bcfad45d4def?q=80&w=1957&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      _id: 1,
-      description: "Description",
-      image:
-        "https://plus.unsplash.com/premium_photo-1681562502996-bcfad45d4def?q=80&w=1957&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      category: "Robots",
-      title: "We robots",
-    },
-  ];
+  const posts = await client.fetch(STARTUPS_QUERY);
+
+  console.log("posts", posts);
 
   return (
     <>
