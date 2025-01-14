@@ -15,7 +15,6 @@ export const experimental_ppr = true;
 
 const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  console.log(id);
   const post = await client.fetch(STARTUP_BY_ID, { id });
 
   const parsedContent = md.render(post.pitch || "");
@@ -31,7 +30,7 @@ const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
         <p className="sub-heading !max-w-5xl">{post.description}</p>
       </section>
       <section className="section_container">
-        <Image
+        <img
           src={post.image}
           alt="thumbnail"
           className="w-auto h-auto rounded-xl"
