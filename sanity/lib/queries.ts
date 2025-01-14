@@ -5,7 +5,7 @@ export const STARTUPS_QUERY = defineQuery(
 );
 
 export const STARTUP_BY_ID = defineQuery(
-  `*[_type=='startup' && defined(slug.current)][0] {_id, title,slug,_createdAt, author -> {_id, name, image, bio},views, description, category, pitch, image}`
+  `*[_type=='startup' && _id == $id][0] {_id, title,slug,_createdAt, author -> {_id, name, image, bio},views, description, category, pitch, image}`
 );
 
 export const STARTUP_VIEWS = defineQuery(

@@ -10,6 +10,7 @@ import { formSchema } from "@/lib/validation";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
+import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -17,7 +18,10 @@ const StartupForm = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const handleSubmit = async (previousState: any, formData: FormData) => {
+  const handleSubmit = async (
+    previousState: Record<string, string>,
+    formData: FormData
+  ) => {
     try {
       const formValues = {
         title: formData.get("title") as string,
@@ -26,22 +30,22 @@ const StartupForm = () => {
         link: formData.get("link") as string,
         pitch,
       };
-
+      console.log(formValues);
       await formSchema.parseAsync(formValues);
 
       console.log(formValues);
 
-      // const result = await createIdea(clearPreviewData, formData, pitch);
+      const result = await createPitch(previousState, formData, pitch);
 
-      // if (result.status === "SUCCESS") {
-      //   toast({
-      //     title: "Success",
-      //     description: "Startup created successfully",
-      //     variant: "default",
-      //   });
+      if (result.status === "SUCCESS") {
+        toast({
+          title: "Success",
+          description: "Startup created successfully",
+          variant: "default",
+        });
 
-      //   router.push(`/startup/${result.id}`);
-      // }
+        router.push(`/startup/${result._id}`);
+      }
 
       return result;
     } catch (error) {
