@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Think Launch
 
-## Getting Started
+**Think Launch** is a modern, feature-rich project built using the latest technologies, including **React 19**, **Next.js 15**, and **Sanity**. This repository focuses on a minimalistic yet highly functional design, ensuring clean code architecture and reusability.
 
-First, run the development server:
+---
+
+## ✨ Features
+
+- **Minimalistic Design**: Fresh and simple UI with only the essential pages for ease of use and a clean aesthetic.
+- **Next.js 15**: Leveraging the power of the latest Next.js version for seamless server-side rendering and API routes.
+- **React 19**: Cutting-edge React features for improved performance and functionality.
+- **Sanity Integration**: Headless CMS for flexible content management.
+- **Radix UI Components**: Clean, accessible, and customizable components for enhanced UI.
+- **Tailwind CSS**: Rapidly build modern and responsive UI.
+- **Markdown Support**: Easily manage and render markdown content.
+- **Authentication**: Built-in support for authentication via NextAuth.
+
+---
+
+## <a name="quick-start">🤸 Quick Start</a>
+
+Follow these steps to set up the project locally on your machine.
+
+### **Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+### **Cloning the Repository**
+
+```bash
+git clone https://github.com/DmytroLysachenko/think-launch.git
+cd think-launch
+```
+
+### **Installation**
+
+Install the project dependencies using npm:
+
+```bash
+npm install
+```
+
+### **Set Up Environment Variables**
+
+Create a new file named `.env.local` in the root of your project and add the following content:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=
+NEXT_PUBLIC_SANITY_API_VERSION='vX'
+SANITY_TOKEN=
+
+AUTH_SECRET=
+AUTH_GITHUB_ID=
+AUTH_GITHUB_SECRET=
+```
+
+Replace the placeholder values with your actual Sanity credentials and authentication details. You can obtain these credentials by signing up and creating a new project on the [Sanity website](https://www.sanity.io/).
+
+### **Running the Project**
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## <a name="tech-stack">🛠️ Tech Stack</a>
 
-## Learn More
+- **Framework**: Next.js 15
+- **Frontend**: React 19, Tailwind CSS
+- **CMS**: Sanity
+- **UI Components**: Radix UI, Lucide React
+- **Markdown Parsing**: markdown-it, Sanity Plugin Markdown
+- **Authentication**: NextAuth
+- **TypeScript Support**: Fully integrated with TypeScript for type safety
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## <a name="scripts">📜 Available Scripts</a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+In the project directory, you can run:
 
-## Deploy on Vercel
+- `npm run dev`: Runs the app in the development mode.
+- `npm run build`: Builds the app for production.
+- `npm run start`: Starts the production build.
+- `npm run lint`: Runs the linter to check for code quality.
+- `npm run typegen`: Generates types for Sanity schemas.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## <a name="contributing">🤝 Contributing</a>
+
+We welcome contributions! If you want to contribute:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/your-feature-name`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature-name`)
+5. Open a Pull Request
+
+---
+
+## <a name="contact">📞 Contact</a>
+
+For any inquiries, feel free to reach out:
+
+- **Email**: dlysachenko98@gmail.com
+- **GitHub**: [My github](https://github.com/DmytroLysachenko)
