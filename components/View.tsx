@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { STARTUP_VIEWS } from "@/sanity/lib/queries";
 import { writeClient } from "@/sanity/lib/write-client";
 
+
 const View = async ({ id }: { id: string }) => {
   const response = await client
     .withConfig({ useCdn: false })
