@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useActionState, useState } from "react";
+import MDEditor from "@uiw/react-md-editor";
+import { Send } from "lucide-react";
+import { z } from "zod";
+import { useRouter } from "next/navigation";
+
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import MDEditor from "@uiw/react-md-editor";
 import { Button } from "./ui/button";
-import { Send } from "lucide-react";
-import { formSchema } from "@/lib/validation";
-import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
-import { useRouter } from "next/navigation";
 import { createPitch } from "@/lib/actions";
+import { formSchema } from "@/lib/validation";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -30,10 +31,8 @@ const StartupForm = () => {
         link: formData.get("link") as string,
         pitch,
       };
-      console.log(formValues);
-      await formSchema.parseAsync(formValues);
 
-      console.log(formValues);
+      await formSchema.parseAsync(formValues);
 
       const result = await createPitch(previousState, formData, pitch);
 
@@ -50,8 +49,8 @@ const StartupForm = () => {
       return result;
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const fielErrors = error.flatten().fieldErrors;
-        setErrors(fielErrors as unknown as Record<string, string>);
+        const fieldErrors = error.flatten().fieldErrors;
+        setErrors(fieldErrors as unknown as Record<string, string>);
 
         toast({
           title: "Error",
@@ -78,6 +77,8 @@ const StartupForm = () => {
     } finally {
     }
   };
+
+  //eslint-disable-next-line
   const [state, formAction, isPending] = useActionState(handleSubmit, {
     error: "",
     status: "INITIAL",
@@ -157,7 +158,7 @@ const StartupForm = () => {
           htmlFor="pitch"
           className="startup-form_label"
         >
-          Link
+          Pitch
         </label>
         <MDEditor
           value={pitch}

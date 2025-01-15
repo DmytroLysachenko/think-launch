@@ -1,8 +1,9 @@
-import { cn, formatDate } from "@/lib/utils";
-import { EyeIcon } from "lucide-react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { EyeIcon } from "lucide-react";
+
+import { cn, formatDate } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Author, Startup } from "@/sanity/types";
 import { Skeleton } from "./ui/skeleton";
