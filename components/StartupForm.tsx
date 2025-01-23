@@ -74,7 +74,6 @@ const StartupForm = () => {
         error: "Something went wrong",
         status: "ERROR",
       };
-    } finally {
     }
   };
 
@@ -96,12 +95,14 @@ const StartupForm = () => {
         >
           Title
         </label>
+
         <Input
           id="title"
           name="title"
           className="startup-form_input"
           placeholder="Startup Title"
         />
+
         {errors.title && <p className="startup-form_error">{errors.title}</p>}
       </div>
       <div>
@@ -111,12 +112,14 @@ const StartupForm = () => {
         >
           Description
         </label>
+
         <Textarea
           id="description"
           name="description"
           className="startup-form_textarea"
           placeholder="Startup Description"
         />
+
         {errors.description && (
           <p className="startup-form_error">{errors.description}</p>
         )}
@@ -128,12 +131,14 @@ const StartupForm = () => {
         >
           Category
         </label>
+
         <Input
           id="category"
           name="category"
           className="startup-form_input"
           placeholder="Startup Category (Tech, Health, Education, etc.)"
         />
+
         {errors.category && (
           <p className="startup-form_error">{errors.category}</p>
         )}
@@ -145,12 +150,14 @@ const StartupForm = () => {
         >
           Link
         </label>
+
         <Input
           id="link"
           name="link"
           className="startup-form_input"
           placeholder="Startup Image url"
         />
+
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
       </div>
       <div data-color-mode="light">
@@ -160,6 +167,7 @@ const StartupForm = () => {
         >
           Pitch
         </label>
+
         <MDEditor
           value={pitch}
           onChange={(value) => setPitch(value as string)}
@@ -172,6 +180,7 @@ const StartupForm = () => {
           }}
           previewOptions={{ disallowedElements: ["style"] }}
         />
+
         {errors.link && <p className="startup-form_error">{errors.link}</p>}
       </div>
       <Button
@@ -179,6 +188,7 @@ const StartupForm = () => {
         disabled={isPending}
       >
         {isPending ? "Submitting..." : "Submit Your Pitch"}
+
         <Send className="size-6 ml-2" />
       </Button>
     </form>

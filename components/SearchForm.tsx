@@ -18,6 +18,7 @@ const SearchForm = ({ query }: { query?: string }) => {
         placeholder="Search Startups"
         type="text"
       />
+
       <div className="flex gap-2">
         {query && <SearchFormReset />}
         <button className="search-btn text-white">

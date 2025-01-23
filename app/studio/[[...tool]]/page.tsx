@@ -9,6 +9,6 @@ export const dynamic = "force-static";
 export { metadata, viewport } from "next-sanity/studio";
 
 export default async function StudioPage() {
-  if (!isProduction) return redirect("/");
+  if (isProduction) return redirect("/");
   return <NextStudio config={config} />;
 }

@@ -20,6 +20,7 @@ const Navbar = async () => {
             height={30}
           />
         </Link>
+
         <div className="flex items-center gap-5 text-black">
           {session && session?.user ? (
             <>
@@ -36,9 +37,11 @@ const Navbar = async () => {
               >
                 <button>
                   <span className="max-sm:hidden">Logout</span>
+
                   <LogOut className="size-6 sm:hidden text-red-500" />
                 </button>
               </form>
+
               <Link href={`/user/${session?.id}`}>
                 <Avatar className="size-10">
                   <AvatarImage

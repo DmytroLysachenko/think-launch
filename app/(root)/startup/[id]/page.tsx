@@ -35,14 +35,17 @@ const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
         <p className="tag">{formatDate(post._createdAt)}</p>
 
         <h1 className="heading">{post.title}</h1>
+
         <p className="sub-heading !max-w-5xl">{post.description}</p>
       </section>
+
       <section className="section_container">
         <img
           src={post.image}
           alt="thumbnail"
           className="w-auto h-auto rounded-xl"
         />
+
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
           <div className="flex-between gap-5">
             <Link
@@ -56,8 +59,10 @@ const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
                 height={64}
                 className="rounded-full drop-shadow-lg"
               />
+
               <div>
                 <p className="text-20-medium">{post.author.name}</p>
+
                 <p className="text-16-medium text-black-300">
                   {post.author.username}
                 </p>
@@ -67,6 +72,7 @@ const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
             <p className="category-tag">{post.category}</p>
           </div>
           <h3 className="text-30-bold">Pitch details</h3>
+
           {parsedContent ? (
             <article
               className="prose"
@@ -80,6 +86,7 @@ const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
         {editorPosts && editorPosts.length > 0 && (
           <div className="max-w-4xl mx-auto">
             <p className="text-30-semibold">Editor Picks</p>
+
             <ul className="mt-7 card_grid-sm">
               {editorPosts.map((post: StartupCardType) => (
                 <StartupCard
