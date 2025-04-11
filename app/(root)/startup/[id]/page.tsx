@@ -82,7 +82,9 @@ const Startup = async ({ params }: { params: Promise<{ id: string }> }) => {
             <p className="no-result">No details provided</p>
           )}
         </div>
+
         <hr className="divider" />
+
         {editorPosts && editorPosts.length > 0 && (
           <div className="max-w-4xl mx-auto">
             <p className="text-30-semibold">Editor Picks</p>

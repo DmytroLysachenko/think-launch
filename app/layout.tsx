@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import "./globals.css";
 import localFont from "next/font/local";
-import "easymde/dist/easymde.min.css";
 
+import "./globals.css";
+import "easymde/dist/easymde.min.css";
 import { Toaster } from "@/components/ui/toaster";
 
 const workSans = localFont({
